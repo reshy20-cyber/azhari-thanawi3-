@@ -40,16 +40,16 @@ h2,h3{margin:12px 0 8px}
 .u{display:flex;gap:12px;align-items:center;background:#fff;border-radius:18px;padding:14px;margin-bottom:10px;border:0;width:100%;text-align:right;font:600 15px Plex;box-shadow:0 3px 10px #0b3b2e14}.u .n{width:38px;height:38px;border-radius:12px;background:#e3f3ec;color:var(--g2);display:grid;place-items:center;font-weight:800;flex:none}.u small{display:block;color:#8a9;font-weight:400}
 </style><style>
 :root{--bg:#f8efdc;--u:.38px}
-body{background:var(--bg);padding-bottom:calc(min(100vw,520px)*.2305 + 30px + env(safe-area-inset-bottom))}
+body{background:var(--bg);padding-bottom:calc(min(100vw,640px)*.2305 + 30px + env(safe-area-inset-bottom))}
 body.hm{background:#f8e7c3}
 body.hm header{display:none}
-body.hm main{margin:0 auto;padding:0;max-width:520px}
+body.hm main{margin:0 auto;padding:0;max-width:640px}
 header{border-bottom:4px solid #d4a937;text-align:right}
 main>h3:first-child,main>h2:first-child{margin-top:38px}
-.hw{position:relative;width:100%;max-width:520px;margin:0 auto;aspect-ratio:1024/1306;overflow:hidden}
+.hw{position:relative;width:100%;max-width:640px;margin:0 auto;aspect-ratio:1024/1306;overflow:hidden}
 .hw>img{display:block;width:100%;height:100%;pointer-events:none;-webkit-user-select:none;user-select:none}
 .hb{position:relative;width:100%;background-image:url(assets/home.jpg);background-repeat:no-repeat;background-size:calc(var(--u)*1024) auto}
-.hcol{max-width:520px;margin:0 auto;display:flex;flex-direction:column;min-height:calc(100vh - 36px - min(100vw,520px)*.2305 - env(safe-area-inset-bottom))}
+.hcol{max-width:640px;margin:0 auto;display:flex;flex-direction:column;min-height:calc(100vh - 36px - min(100vw,640px)*.2305 - env(safe-area-inset-bottom))}
 .hb.ft:before,.hb.fb:after{content:'';position:absolute;left:0;right:0;height:7%;pointer-events:none;z-index:1}.hb.ft:before{top:0;background:linear-gradient(#f8e7c3,transparent)}.hb.fb:after{bottom:0;background:linear-gradient(transparent,#f8e7c3)}
 .hmid{flex:1;display:flex;flex-direction:column;justify-content:space-evenly}
 .hs{position:absolute;background:transparent;border:0;padding:0;margin:0;border-radius:calc(var(--u)*28);color:transparent;font-size:0;cursor:pointer;-webkit-appearance:none;appearance:none}
@@ -57,7 +57,7 @@ main>h3:first-child,main>h2:first-child{margin-top:38px}
 .hx{position:absolute;display:flex;align-items:center;justify-content:center;text-align:center;pointer-events:none;font-family:Plex,system-ui,Tahoma,sans-serif;white-space:nowrap}
 .hpill{position:absolute;display:flex;align-items:center;justify-content:center;gap:calc(var(--u)*12);background:linear-gradient(180deg,#0f5240,#0a3d30);border:calc(var(--u)*3.5) solid #d9b24c;border-radius:calc(var(--u)*40);color:#fff;font:800 calc(var(--u)*31)/1 Plex,system-ui,sans-serif;box-shadow:0 calc(var(--u)*6) calc(var(--u)*14) #0006}
 .hpill select{position:absolute;left:0;top:0;width:100%;height:100%;opacity:0;font-size:16px;-webkit-appearance:none;appearance:none;border:0;background:none}
-#nv{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(4px + env(safe-area-inset-bottom));width:min(100vw,520px);aspect-ratio:1024/236;z-index:30}
+#nv{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(4px + env(safe-area-inset-bottom));width:min(100vw,640px);aspect-ratio:1024/236;z-index:30}
 #nv img{display:block;width:100%;height:100%;filter:drop-shadow(0 5px 8px #00000045);pointer-events:none}
 #nv .hs.on:after{content:"";position:absolute;left:24%;right:24%;bottom:calc(var(--u)*12);height:calc(var(--u)*7);border-radius:6px;background:#ffd76a;box-shadow:0 0 calc(var(--u)*16) #ffd76a}
 #nb{position:absolute;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#e53935;color:#fff;font:800 calc(var(--u)*23)/1 Plex,system-ui,sans-serif;pointer-events:none;border:calc(var(--u)*2.5) solid #fff8}
@@ -168,6 +168,12 @@ img.troph{mix-blend-mode:multiply}
 #lq{position:fixed;inset:0;background:#000a;z-index:99;display:grid;place-items:center;padding:24px}
 .lqb{background:#fffaf0;border:2px solid #d4a937;border-radius:22px;padding:20px;max-width:340px;width:100%;text-align:center;box-shadow:0 10px 30px #0008}
 .lqb b{font-size:20px}.lqb p{color:#4a5a52;margin:8px 0 4px}.lqb div{display:flex;gap:10px}.lqb .btn{margin-top:10px;padding:11px;font-size:15px}
+</style><style>
+@media(min-width:700px){
+body:not(.hm) header.ih,body:not(.hm) main{zoom:1.05}
+body:not(.hm) main{max-width:720px}
+#nv2{max-width:640px}
+}
 </style></head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="gd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdeeb4"/><stop offset="1" stop-color="#d49b27"/></linearGradient><linearGradient id="gF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3bf"/><stop offset=".45" stop-color="#f0c24b"/><stop offset="1" stop-color="#b98120"/></linearGradient></defs></svg>
 <header><h1 id="ttl">أزهري</h1><div class="sub">رفيقك للتفوق في الثانوية الأزهرية</div><span id="trk"></span></header><main id="m"></main>
 <div id="nv"><img src="assets/nav.png" alt=""><button class="hs" data-t="acct" aria-label="حسابي" style="left:79.883%;top:27.966%;width:18.164%;height:61.864%;"></button><button class="hs" data-t="courses" aria-label="مقرراتي" style="left:60.352%;top:27.966%;width:19.336%;height:61.864%;"></button><button class="hs" data-t="home" aria-label="الرئيسية" style="left:40.039%;top:5.085%;width:20.117%;height:91.525%;border-radius:50%"></button><button class="hs" data-t="notifs" aria-label="الإشعارات" style="left:20.703%;top:27.966%;width:19.336%;height:61.864%;"></button><button class="hs" data-t="more" aria-label="المزيد" style="left:1.562%;top:27.966%;width:18.945%;height:61.864%;"></button><span id="nb" style="left:30.078%;top:33.051%;width:3.906%;height:16.949%"></span></div><div id="nv2"><button data-t="home" aria-label="الرئيسية"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v11h5v-6h4v6h5V10"/></svg><span>الرئيسية</span></button><button data-t="courses" aria-label="مقرراتي"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg><span>مقرراتي</span></button><button data-t="exam" aria-label="الامتحان"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/><path d="M9 2h6"/></svg><span>الامتحان</span></button><button data-t="stats" aria-label="النتائج"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg><span>النتائج</span></button><button data-t="more" aria-label="المزيد"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2"/></svg><span>المزيد</span></button></div>
@@ -186,7 +192,7 @@ function nav(t){if(QA)return leaveQ(()=>nav0(t));nav0(t)}
 function nav0(t){tab=t;document.querySelectorAll('#nv .hs').forEach(b=>b.classList.toggle('on',b.dataset.t==t&&t!='home'));window.scrollTo(0,0);({home,exam,stats,courses,acct,notifs,more})[t]();badge()}
 document.querySelectorAll('#nv .hs').forEach(b=>b.onclick=()=>nav(b.dataset.t));
 document.querySelectorAll('#nv2 button').forEach(b=>b.onclick=()=>nav(b.dataset.t));
-function fit(){document.documentElement.style.setProperty('--u',Math.min(innerWidth,520)/1024+'px')}fit();addEventListener('resize',fit);
+function fit(){document.documentElement.style.setProperty('--u',Math.min(innerWidth,640)/1024+'px')}fit();addEventListener('resize',fit);
 function head(t){document.body.classList.remove('hm');const hd=document.querySelector('header');hd.className='';
  hd.innerHTML=`<h1 id="ttl">${esc(t)}</h1><div class="sub">رفيقك للتفوق في الثانوية الأزهرية</div><span id="trk">${track?S.tracks[track]:''}</span>`}
 function pick(){head('أزهري');m.innerHTML=`<h2>اختر شعبتك</h2><div class="seg"><button onclick="setT('sci')">علمي</button><button onclick="setT('lit')">أدبي</button></div>`}
