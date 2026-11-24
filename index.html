@@ -193,9 +193,6 @@ function nav0(t){tab=t;document.querySelectorAll('#nv .hs').forEach(b=>b.classLi
 document.querySelectorAll('#nv .hs').forEach(b=>b.onclick=()=>nav(b.dataset.t));
 document.querySelectorAll('#nv2 button').forEach(b=>b.onclick=()=>nav(b.dataset.t));
 function fit(){document.documentElement.style.setProperty('--u',Math.min(innerWidth,640)/1024+'px')}fit();addEventListener('resize',fit);
-function head(t){document.body.classList.remove('hm');const hd=document.querySelector('header');hd.className='';
- hd.innerHTML=`<h1 id="ttl">${esc(t)}</h1><div class="sub">رفيقك للتفوق في الثانوية الأزهرية</div><span id="trk">${track?S.tracks[track]:''}</span>`}
-function pick(){head('أزهري');m.innerHTML=`<h2>اختر شعبتك</h2><div class="seg"><button onclick="setT('sci')">علمي</button><button onclick="setT('lit')">أدبي</button></div>`}
 window.setT=t=>{track=localStorage.track=t;nav('home')};
 const PAL=[['#14785a','#0b4d3a'],['#c9922b','#8a5f12'],['#2f6fd0','#1b3f85'],['#c4506b','#7e2a40'],['#7a56c4','#472f85'],['#1a8f9a','#0d5560']];const col=id=>PAL[[...id].reduce((a,c)=>a+c.charCodeAt(0),0)%PAL.length];
 function prog(id){const x=hist().filter(r=>r.id==id);if(!x.length)return 0;const a=x.reduce((s,r)=>s+r.sc,0),n=x.reduce((s,r)=>s+r.n,0);return Math.round(a/n*100)}
@@ -324,12 +321,15 @@ async function bankGo(t){if(t=='wrong')return runWrong(BF.sid);let a=await bankP
 async function bankSearch(){const k=($('#sq').value||'').trim();if(!k)return alert('اكتب كلمة للبحث');const a=(await bankPool()).filter(q=>(q.q+' '+q.options.join(' ')).includes(k));if(!a.length)return alert('لا توجد نتائج');run(a[0].sid,a.slice(0,30),false,0,{title:'نتائج البحث ('+a.length+')',back:'bank()'})}
 /* ---- quiz ---- */
 let Q;function run(id,qs,timed,min,meta={}){Q={id,qs,i:0,sc:0,wrong:[],res:[],timed,meta,end:timed?Date.now()+(min||qs.length)*60000:0};show()}
-function show(){if(Q.i>=Q.qs.length)return fin();QA=true;const q=Q.qs[Q.i];head(Q.meta.title||sub(Q.id)?.name||'اختبار',`leaveQ(()=>{${Q.meta.back||"nav('home')"}})`,{act:'tests',left:Q.timed?'<span class="hl tm" id="tm"></span>':'',sub:`سؤال ${Q.i+1} من ${Q.qs.length}`});
+const KEEP=/(كل|جميع)\s*(ما|الإجابات|الخيارات)|لا\s*شيء\s*مما|كلاهما|كلتاهما|جميع\s*ما\s*سبق|(?:^|\s)(?:أ|ا)\s*[\u0648و]\s*ب(?:\s|$)/;
+function perm(q){const n=q.options.length,id=[...Array(n).keys()];if(q.options.length==2||q.options.some(o=>KEEP.test(o))||q.q.includes('اكتب صح'))return id;
+ for(let i=n-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[id[i],id[j]]=[id[j],id[i]]}return id}
+function show(){if(Q.i>=Q.qs.length)return fin();QA=true;const q=Q.qs[Q.i];Q.p=perm(q);head(Q.meta.title||sub(Q.id)?.name||'اختبار',`leaveQ(()=>{${Q.meta.back||"nav('home')"}})`,{act:'tests',left:Q.timed?'<span class="hl tm" id="tm"></span>':'',sub:`سؤال ${Q.i+1} من ${Q.qs.length}`});
  m.innerHTML=`<div class="bar2 qb"><i style="width:${Q.i/Q.qs.length*100}%"></i></div><div class="qcard"><h3>${esc(q.q)}</h3></div>`+
- q.options.map((o,k)=>`<button class="opt" onclick="ans(${k})"><span class="oi">${'أبجدهوز'[k]||k+1}</span>${esc(o)}</button>`).join('')+'<div id="ex"></div>';tick()}
+ Q.p.map((oi,k)=>`<button class="opt" onclick="ans(${k})"><span class="oi">${'أبجدهوز'[k]||k+1}</span>${esc(q.options[oi])}</button>`).join('')+'<div id="ex"></div>';tick()}
 let T;function tick(){clearInterval(T);if(!Q.timed)return;T=setInterval(()=>{const r=Math.max(0,Q.end-Date.now()),e=$('#tm');if(e)e.textContent=Math.floor(r/60000)+':'+String(Math.floor(r/1000)%60).padStart(2,'0');if(!r){clearInterval(T);fin()}},500)}
-window.ans=k=>{const q=Q.qs[Q.i],b=document.querySelectorAll('.opt');b.forEach((x,j)=>{x.disabled=true;if(j==q.answer)x.classList.add('ok')});
- if(k==q.answer){Q.sc++;Q.res.push(1)}else{b[k].classList.add('no');Q.wrong.push({q,picked:k});Q.res.push(0)}
+window.ans=k=>{const q=Q.qs[Q.i],b=document.querySelectorAll('.opt'),ok=Q.p.indexOf(q.answer),pk=Q.p[k];b.forEach((x,j)=>{x.disabled=true;if(j==ok)x.classList.add('ok')});
+ if(pk==q.answer){Q.sc++;Q.res.push(1)}else{b[k].classList.add('no');Q.wrong.push({q,picked:pk});Q.res.push(0)}
  $('#ex').innerHTML=(q.explain?`<div class="note">💡 ${esc(q.explain)}</div>`:'')+`<button class="btn g" onclick="Q.i++;show()">${Q.i+1>=Q.qs.length?'إنهاء وعرض النتيجة':'التالي'}</button>`};
 function fin(){QA=false;clearInterval(T);const n=Q.qs.length,p=Math.round(Q.sc/n*100);const h=hist();h.push({d:Date.now(),id:Q.id,sc:Q.sc,n,t:Q.meta.title||''});localStorage.hist=JSON.stringify(h.slice(-200));
  const w=wrongQ();Q.wrong.forEach(x=>{if(!w.some(y=>y.q.q==x.q.q))w.push({sid:x.q.sid||Q.id,q:x.q})});localStorage.wrongQ=JSON.stringify(w.slice(-150));
