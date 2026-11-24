@@ -293,7 +293,10 @@ function startSet(id){const e=INLINE.examsets.find(x=>x.id==id);intro({id,qs:e.q
 async function startExam(id){const d=await data(id);if(!d.questions.length)return alert('لا توجد أسئلة لهذه المادة بعد');const qs=[...d.questions].sort(()=>Math.random()-.5).slice(0,30);intro({id,qs,min:qs.length,title:(sub(id)?.name||'')+' - نموذج شامل',back:`subj('${id}','tests')`})}
 /* ---- question bank ---- */
 let BF={sid:'',unit:'',type:''};
-const qt=q=>q.options.length==2&&(q.options[0]=='صح'||q.options[1]=='صح')?'tf':(/[.…]{3,}|_{3,}/.test(q.q)?'fill':((/[0-9٠-٩]/.test(q.q)&&(q.options.some(o=>/^[\s\-−+]?[0-9.,/×x^·]+/.test(o))||/(=|÷|×|احسب|أوجد|يساوي|تساوي)/.test(q.q+' '+(q.explain||''))))?'prob':'mcq'));
+const qt=q=>q.options.length==2&&(q.options[0]=='صح'||q.options[1]=='صح')?'tf':(/[.…]{3,}|_{3,}/.test(q.q)||/[:：]\s*$/.test(q.q.trim())?'fill':((/[0-9٠-٩]/.test(q.q)&&(q.options.some(o=>/^[\s\-−+]?[0-9.,/×x^·]+/.test(o))||/(=|÷|×|احسب|أوجد|يساوي|تساوي)/.test(q.q+' '+(q.explain||''))))?'prob':'mcq'));
+function mkTF(q,i){const st=q.q.trim();if(!(/[:：]\s*$/.test(st)||/[.…]{3,}/.test(st)))return null;const ok=i%2==0,w=q.options.filter((_,k)=>k!=q.answer),opt=ok?q.options[q.answer]:w[i%w.length];if(!opt)return null;
+ const body=/[.…]{3,}/.test(st)?st.replace(/[.…]{3,}/,opt):st.replace(/[:：]\s*$/,'')+': '+opt;
+ return {q:'اكتب صح أو خطأ: '+body,options:['صح','خطأ'],answer:ok?0:1,explain:(ok?'':'الصحيح: '+q.options[q.answer]+'. ')+(q.explain||''),unit:q.unit,sid:q.sid}}
 function bank(){if(!track)return pick();head('بنك الأسئلة',"nav('home')",{act:'tests',left:'<span class="hl">🗂️</span>'});const l=subsOf();
  const us=BF.sid?INLINE[BF.sid].units:[];
  const T=[['mcq','b_list','اختيار من متعدد'],['tf','b_x','صح وخطأ'],['fill','b_edit','أكمل'],['prob','b_flask','مسائل تطبيقية'],['wrong','b_doc','أسئلة أخطأت فيها'],['all','b_grid','كل الأسئلة']];
@@ -302,7 +305,7 @@ function bank(){if(!track)return pick();head('بنك الأسئلة',"nav('home'
  <input class="fld" id="sq" placeholder="اكتب كلمة للبحث في الأسئلة"><button class="btn g" onclick="bankSearch()">🔍 بحث عن الأسئلة</button>`}
 async function bankPool(){const l=BF.sid?[sub(BF.sid)]:subsOf(),all=[];for(const s of l){const d=await data(s.id);d.questions.forEach(q=>{if(!BF.unit||q.unit==BF.unit)all.push({...q,sid:s.id})})}
  if(!BF.unit){const k=BF.sid?KW[BF.sid]:null;(INLINE.examsets||[]).filter(e=>e.track==track&&(!BF.sid||(k&&e.title.includes(k)))).forEach(e=>e.questions.forEach(q=>all.push({...q,sid:BF.sid||e.id})))}return all}
-async function bankGo(t){if(t=='wrong')return runWrong(BF.sid);let a=await bankPool();if(t!='all')a=a.filter(q=>qt(q)==t);if(!a.length)return alert('لا توجد أسئلة من هذا النوع في الاختيار الحالي، جرّب «كل المواد» أو «كل الأسئلة»');run(a[0].sid,a.sort(()=>Math.random()-.5).slice(0,20),false,0,{title:'بنك الأسئلة',back:'bank()'})}
+async function bankGo(t){if(t=='wrong')return runWrong(BF.sid);let a=await bankPool();if(t=='tf'){const g=a.filter(q=>qt(q)=='mcq'||qt(q)=='fill').map(mkTF).filter(Boolean);a=a.filter(q=>qt(q)=='tf').concat(g)}else if(t!='all')a=a.filter(q=>qt(q)==t);if(!a.length)return alert('لا توجد أسئلة من هذا النوع في الاختيار الحالي، جرّب «كل المواد» أو «كل الأسئلة»');run(a[0].sid,a.sort(()=>Math.random()-.5).slice(0,20),false,0,{title:'بنك الأسئلة',back:'bank()'})}
 async function bankSearch(){const k=($('#sq').value||'').trim();if(!k)return alert('اكتب كلمة للبحث');const a=(await bankPool()).filter(q=>(q.q+' '+q.options.join(' ')).includes(k));if(!a.length)return alert('لا توجد نتائج');run(a[0].sid,a.slice(0,30),false,0,{title:'نتائج البحث ('+a.length+')',back:'bank()'})}
 /* ---- quiz ---- */
 let Q;function run(id,qs,timed,min,meta={}){Q={id,qs,i:0,sc:0,wrong:[],res:[],timed,meta,end:timed?Date.now()+(min||qs.length)*60000:0};show()}
