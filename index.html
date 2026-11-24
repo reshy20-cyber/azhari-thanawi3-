@@ -38,9 +38,46 @@ h2,h3{margin:12px 0 8px}
 .pb{height:5px;background:#ffffff40;border-radius:4px;margin-top:8px;overflow:hidden}.pb i{display:block;height:100%;background:#fff;border-radius:4px}
 .shead{border-radius:24px;padding:20px;color:#fff;margin-bottom:14px;box-shadow:0 8px 20px #0003}.shead .em{font-size:42px}.shead h2{margin:6px 0 2px}.shead p{margin:0;font-size:13px;opacity:.9}
 .u{display:flex;gap:12px;align-items:center;background:#fff;border-radius:18px;padding:14px;margin-bottom:10px;border:0;width:100%;text-align:right;font:600 15px Cairo;box-shadow:0 3px 10px #0b3b2e14}.u .n{width:38px;height:38px;border-radius:12px;background:#e3f3ec;color:var(--g2);display:grid;place-items:center;font-weight:800;flex:none}.u small{display:block;color:#8a9;font-weight:400}
+</style><style>
+:root{--bg:#f4eddc}
+header{text-align:right}
+header.big{padding:0;height:292px;border-radius:0 0 42px 42px;background:linear-gradient(115deg,#0a3a2d 0%,#14785a 58%,#0c5a46 100%);text-align:center;position:relative;overflow:hidden;box-shadow:0 10px 26px #0b3b2e55}
+header.big:after{content:"";position:absolute;inset:auto 0 0 0;height:6px;background:linear-gradient(90deg,#f1d27a,#d4a937,#f1d27a)}
+header.big .mosque{position:absolute;left:0;bottom:0;width:66%;height:100%;-webkit-mask-image:linear-gradient(to right,#000 50%,transparent);mask-image:linear-gradient(to right,#000 50%,transparent)}
+header.big .pill{position:absolute;left:14px;top:calc(16px + env(safe-area-inset-top));background:#0b3b2ed9;border:1.5px solid #d4a937;border-radius:24px;padding:7px 12px;color:#fff;display:flex;gap:6px;align-items:center;z-index:3;font-size:18px}
+header.big .pill select{-webkit-appearance:none;appearance:none;background:none;border:0;color:#fff;font:800 16px Cairo;padding:0 2px;outline:none}
+header.big .logo{position:relative;z-index:1;font-size:46px;margin-top:calc(26px + env(safe-area-inset-top));filter:drop-shadow(0 4px 6px #0008)}
+header.big h1{position:relative;z-index:1;font-size:34px;font-weight:800;margin:2px 0 10px;text-shadow:0 3px 10px #000a}
+header.big .ribbon{position:relative;z-index:1;display:inline-block;background:linear-gradient(90deg,#f1d27a,#d4a937,#f1d27a);color:#0b3b2e;font-weight:800;font-size:15px;padding:6px 22px;border-radius:22px;box-shadow:0 4px 12px #0006}
+header.big .yr{position:relative;z-index:1;margin-top:12px;color:#ffe9a8;font-weight:700;letter-spacing:1px;font-size:17px}
+.greet{background:linear-gradient(135deg,#0b3b2e,#14785a);color:#fff;border-radius:32px 32px 0 0;text-align:center;padding:14px 16px 30px;position:relative;z-index:2;border:1.5px solid #d4a93799;border-bottom:0}
+.greet h2{margin:0;font-size:21px}.greet p{margin:3px 0 0;font-size:14px;opacity:.92}
+.st3{display:flex;background:linear-gradient(#fbf4e2,#f2e6c8);border-radius:26px;margin:-18px 4px 16px;padding:14px 4px;border:1.5px solid #d4a93777;box-shadow:0 8px 22px #0b3b2e26;position:relative;z-index:3}
+.st3>div{flex:1;text-align:center;border-left:1px solid #d4a93766}.st3>div:last-child{border:0}
+.st3 .ic{font-size:30px}.st3 b{display:block;font-size:26px;color:#0b3b2e;line-height:1.2}.st3 small{color:#44564b;font-weight:700;font-size:12.5px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:16px}
+.tile{border:2px solid #ffffff99;border-radius:20px;padding:10px 2px 8px;color:#fff;font:800 12.5px/1.35 Cairo;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:106px;box-shadow:0 6px 14px #0003;position:relative;overflow:hidden;transition:transform .12s}
+.tile:before{content:"";position:absolute;left:-22px;top:-22px;width:70px;height:70px;border-radius:50%;background:#ffffff22}
+.tile .ti{font-size:38px;filter:drop-shadow(0 3px 3px #0006);position:relative}.tile b{position:relative;text-align:center}
+.tile:active{transform:scale(.94)}
+.qa4{display:flex;background:linear-gradient(#fbf4e2,#f2e6c8);border-radius:24px;padding:12px 2px;border:1.5px solid #d4a93777;box-shadow:0 6px 18px #0b3b2e22;margin-bottom:12px}
+.qa4 button{flex:1;background:none;border:0;border-left:1px solid #d4a93766;font:800 13px Cairo;color:#17251f;display:flex;flex-direction:column;align-items:center;gap:4px;padding:4px 0}.qa4 button:last-child{border:0}
+.qa4 span{font-size:34px}.qa4 button:active{transform:scale(.93)}
+nav{left:10px;right:10px;bottom:calc(8px + env(safe-area-inset-bottom));height:76px;margin:0;background:linear-gradient(180deg,#0f4a39,#0a3328);border:2px solid #d4a937;border-radius:40px;padding:0 6px;align-items:center;box-shadow:0 8px 24px #0007;z-index:20}
+nav button{color:#eadfb8;font:700 11.5px Cairo;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;background:none;position:relative}
+nav button.on{background:none;color:#ffd76a}
+nav span{position:relative;font-size:25px;display:block}
+nav button.c{flex:0 0 94px;height:94px;margin-top:-36px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#17614b,#0a3328);border:3px solid #d4a937;justify-content:center;box-shadow:0 8px 20px #0008}
+nav button.c span{font-size:36px}
+.bd{position:absolute;top:-5px;right:-11px;min-width:19px;height:19px;border-radius:10px;background:#e53935;color:#fff;font:700 11px Cairo;display:none;align-items:center;justify-content:center;font-style:normal;padding:0 4px;border:1.5px solid #0a3328}
+.nt{display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:18px;padding:14px;margin-bottom:10px;border:0;width:100%;text-align:right;font:600 14px Cairo;box-shadow:0 3px 10px #0b3b2e14;color:var(--tx)}.nt.nw{background:#fff7dc;border:1.5px solid #e6c768}
+.nt .ic{font-size:28px}.nt b{display:block;font-size:15px}.nt small{display:block;color:#6a7a70;font-weight:400;margin-top:2px}
+.fld{width:100%;padding:13px;border:2px solid #e3ddcd;border-radius:14px;font:600 16px Cairo;background:#fff;margin:6px 0 12px}
+.prof{text-align:center;background:#fff;border-radius:22px;padding:18px;margin-bottom:12px;box-shadow:0 4px 14px #0b3b2e14}.prof .av{font-size:56px}
+body{padding-bottom:calc(150px + env(safe-area-inset-bottom))}
 </style></head><body>
 <header><h1 id="ttl">أزهري</h1><div class="sub">رفيقك للتفوق في الثانوية الأزهرية</div><span id="trk"></span></header><main id="m"></main>
-<nav><button data-t="home"><span>🏠</span>الرئيسية</button><button data-t="exam"><span>⏱️</span>امتحان</button><button data-t="stats"><span>📊</span>نتائجي</button></nav>
+<nav><button data-t="acct"><span>👤</span>حسابي</button><button data-t="courses"><span>🎓</span>مقرراتي</button><button data-t="home" class="c"><span>🏠</span>الرئيسية</button><button data-t="notifs"><span>🔔<i class="bd" id="nb"></i></span>الإشعارات</button><button data-t="more"><span>▦</span>المزيد</button></nav>
 <script>
 const $=s=>document.querySelector(s),m=$('#m');let S,D={},tab='home',track=localStorage.track||'';
 
@@ -48,22 +85,55 @@ const INLINE={"subjects":{"tracks":{"sci":"علمي","lit":"أدبي"},"subjects
 const hist=()=>JSON.parse(localStorage.hist||'[]');
 const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 async function data(id){if(D[id])return D[id];if(INLINE[id])return D[id]=INLINE[id];try{D[id]=await (await fetch(`data/${id}.json`)).json()}catch(e){D[id]={units:[],questions:[]}}return D[id]}
-function nav(t){tab=t;document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t==t));({home,exam,stats})[t]()}
+function nav(t){tab=t;document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t==t));window.scrollTo(0,0);({home,exam,stats,courses,acct,notifs,more})[t]();badge()}
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>nav(b.dataset.t));
-function head(t){$('#ttl').textContent=t;$('#trk').textContent=track?S.tracks[track]:''}
+const MOSQUE=`<svg class="mosque" viewBox="0 0 300 292" preserveAspectRatio="xMinYMax slice" aria-hidden="true"><defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b86b8"/><stop offset="1" stop-color="#cfe4ea"/></linearGradient><linearGradient id="st" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9cf93"/><stop offset="1" stop-color="#b8935a"/></linearGradient></defs><rect width="300" height="292" fill="url(#sk)"/><ellipse cx="60" cy="70" rx="46" ry="12" fill="#fff" opacity=".55"/><ellipse cx="190" cy="110" rx="50" ry="10" fill="#fff" opacity=".4"/><g fill="url(#st)" stroke="#8d6d3a" stroke-width="1.2"><rect x="18" y="86" width="26" height="206"/><path d="M14 86h34l-4-14H18z"/><path d="M20 72q11-34 22 0z"/><rect x="29" y="40" width="4" height="14"/><rect x="82" y="150" width="20" height="142"/><path d="M79 150h26l-3-10H82z"/><path d="M84 140q8-24 16 0z"/><rect x="120" y="215" width="170" height="77"/><path d="M142 215a48 48 0 0 1 96 0z"/><rect x="188" y="150" width="3" height="18"/><path d="M130 215a16 16 0 0 1 32 0z"/><path d="M218 215a16 16 0 0 1 32 0z"/></g><g fill="#8d6d3a" opacity=".55"><rect x="22" y="110" width="4" height="10" rx="2"/><rect x="36" y="110" width="4" height="10" rx="2"/><rect x="22" y="150" width="4" height="10" rx="2"/><rect x="36" y="150" width="4" height="10" rx="2"/><rect x="150" y="238" width="5" height="22" rx="2"/><rect x="175" y="238" width="5" height="22" rx="2"/><rect x="200" y="238" width="5" height="22" rx="2"/><rect x="225" y="238" width="5" height="22" rx="2"/></g></svg>`;
+function head(t,big){const hd=document.querySelector('header');hd.className=big?'big':'';
+ hd.innerHTML=big?`${MOSQUE}<label class="pill">🎓<select onchange="setT(this.value)"><option value="sci" ${track=='sci'?'selected':''}>علمي</option><option value="lit" ${track=='lit'?'selected':''}>أدبي</option></select></label><div class="logo">🕌</div><h1 id="ttl">${esc(t)}</h1><div class="ribbon">رفيقك للتفوق في الثانوية الأزهرية</div><div class="yr">✦ 2026 / 2027 ✦</div>`
+ :`<h1 id="ttl">${esc(t)}</h1><div class="sub">رفيقك للتفوق في الثانوية الأزهرية</div><span id="trk">${track?S.tracks[track]:''}</span>`}
 function pick(){head('أزهري');m.innerHTML=`<h2>اختر شعبتك</h2><div class="seg"><button onclick="setT('sci')">علمي</button><button onclick="setT('lit')">أدبي</button></div>`}
 window.setT=t=>{track=localStorage.track=t;nav('home')};
 const PAL=[['#14785a','#0b4d3a'],['#c9922b','#8a5f12'],['#2f6fd0','#1b3f85'],['#c4506b','#7e2a40'],['#7a56c4','#472f85'],['#1a8f9a','#0d5560']];const col=id=>PAL[[...id].reduce((a,c)=>a+c.charCodeAt(0),0)%PAL.length];
 function prog(id){const x=hist().filter(r=>r.id==id);if(!x.length)return 0;const a=x.reduce((s,r)=>s+r.sc,0),n=x.reduce((s,r)=>s+r.n,0);return Math.round(a/n*100)}
 function streak(){const days=[...new Set(hist().map(r=>new Date(r.d).toDateString()))];let s=0,d=new Date();while(days.includes(d.toDateString())){s++;d.setDate(d.getDate()-1)}return s}
-function home(){if(!track)return pick();head('ثالثة ثانوي أزهري');const h=hist(),tot=h.reduce((s,r)=>s+r.n,0),ok=h.reduce((s,r)=>s+r.sc,0);
- const hr=new Date().getHours(),g=hr<12?'صباح الخير':hr<18?'مساء الخير':'مساء النور';
- m.innerHTML=`<div class="hero"><h2>${g} يا بطل 👋</h2><p>كل يوم خطوة نحو التفوق إن شاء الله</p><div class="stats"><div><b>${streak()}</b><small>🔥 أيام متتالية</small></div><div><b>${tot}</b><small>سؤال محلول</small></div><div><b>${tot?Math.round(ok/tot*100):0}%</b><small>نسبة الصواب</small></div></div></div>
- <div class="qa"><button style="background:linear-gradient(135deg,#14785a,#0b4d3a)" onclick="quick()"><span>⚡</span>تدريب سريع</button><button style="background:linear-gradient(135deg,#c9922b,#8a5f12)" onclick="nav('exam')"><span>⏱️</span>امتحان</button><button style="background:linear-gradient(135deg,#2f6fd0,#1b3f85)" onclick="nav('stats')"><span>📊</span>نتائجي</button></div>
- <div class="seg"><button class="${track=='sci'?'on':''}" onclick="setT('sci')">علمي</button><button class="${track=='lit'?'on':''}" onclick="setT('lit')">أدبي</button></div>
- <div class="sec"><b>موادك الدراسية</b><small>${S.subjects.filter(s=>s.tracks.includes(track)).length} مادة</small></div><div class="grid">`+
- S.subjects.filter(s=>s.tracks.includes(track)).map(s=>{const c=col(s.id),p=prog(s.id),d=INLINE[s.id],nl=d?d.units.reduce((a,u)=>a+u.lessons.length,0):0,nq=d?d.questions.length:0;
- return `<button class="sc" style="background:linear-gradient(135deg,${c[0]},${c[1]})" onclick="subj('${s.id}')"><span class="em">${s.icon}</span><span class="nm">${s.name}<small>${nl} درس • ${nq} سؤال</small><div class="pb"><i style="width:${p}%"></i></div></span></button>`}).join('')+`</div>`}
+const NOTIFS=[
+{id:'n_phys',track:'sci',ic:'⚛️',t:'نموذج امتحان الفيزياء',d:'امتحان الأزهر علمي، الدور الأول 2026 بالإجابات النموذجية',go:"nav('exam')"},
+{id:'n_eng',track:'lit',ic:'🔤',t:'نموذج امتحان الإنجليزي',d:'امتحان الأزهر أدبي، الدور الأول 2026 بالإجابات النموذجية',go:"nav('exam')"},
+{id:'n_stat',track:'lit',ic:'📊',t:'مادة الإحصاء متاحة الآن',d:'ست وحدات: الارتباط والانحدار والاحتمال والتوزيع الطبيعي',go:"subj('stat')"},
+{id:'n_nahw',ic:'✍️',t:'وحدات النحو الجديدة',d:'المنادى، نواصب المضارع، جوازم المضارع، اسم الفعل، العدد',go:"subj('nahw')"},
+{id:'n_hi',ic:'👋',t:'أهلاً بك في أزهري',d:'اختر مادة وابدأ التدريب، وتابع تقدمك من «نتائجي»',go:"nav('home')"}];
+const seen=()=>JSON.parse(localStorage.seen||'[]'),myN=()=>NOTIFS.filter(n=>!n.track||n.track==track),unread=()=>myN().filter(n=>!seen().includes(n.id)).length;
+function badge(){const b=$('#nb');if(!b)return;const u=track?unread():0;b.textContent=u;b.style.display=u?'flex':'none'}
+const SG={tawhid:['#35a45e','#14663a'],hadith:['#19a5a3','#0b6870'],fiqh_shafii:['#e0aa47','#9a6a14'],quran:['#2380cc','#0f4a86'],tafsir:['#35a45e','#14663a'],balagha:['#2a7fd0','#123f86'],nahw:['#8f60d6','#4a2c8c'],adab:['#c9506f','#7e2a40'],fiqh_hanafi:['#e0aa47','#9a6a14'],stat:['#e5873f','#9a4a14'],__more:['#bd3d60','#6c1f36']};
+const subsOf=()=>S.subjects.filter(s=>s.tracks.includes(track)&&INLINE[s.id]&&(INLINE[s.id].units.length||INLINE[s.id].questions.length));
+function home(){if(!track)return pick();head('ثالثة ثانوي أزهري',true);
+ const h=hist(),tot=h.reduce((s,r)=>s+r.n,0),ok=h.reduce((s,r)=>s+r.sc,0),hr=new Date().getHours(),g=hr<12?'صباح الخير':hr<18?'مساء الخير':'مساء النور',nm=esc(localStorage.uname||'بطل');
+ const ids=subsOf().map(s=>s.id),ORD=['tawhid','hadith','fiqh_shafii','quran','__more','tafsir','balagha','nahw'],rest=ids.filter(i=>!ORD.includes(i));
+ const main=ORD.filter(i=>i=='__more'?rest.length:ids.includes(i));
+ const tile=i=>{const c=SG[i]||col(i),s=i=='__more'?{icon:'📚',name:'مواد أخرى'}:sub(i);return `<button class="tile" style="background:linear-gradient(160deg,${c[0]},${c[1]})" onclick="${i=='__more'?'others()':`subj('${i}')`}"><span class="ti">${s.icon}</span><b>${esc(s.name)}</b></button>`};
+ m.innerHTML=`<div class="greet"><h2>${g} يا ${nm} 👋</h2><p>كل يوم خطوة نحو التفوق بإذن الله</p></div>
+ <div class="st3"><div><span class="ic">🗓️</span><b>${streak()}</b><small>🔥 أيام متتالية</small></div><div><span class="ic">📚</span><b>${tot}</b><small>سؤال محلول</small></div><div><span class="ic">🎯</span><b>${tot?Math.round(ok/tot*100):0}%</b><small>نسبة الإنجاز</small></div></div>
+ <div class="tiles">${main.map(tile).join('')}</div>
+ <div class="qa4"><button onclick="nav('courses')"><span>📖</span>شرح المقررات</button><button onclick="nav('exam')"><span>📝</span>امتحانات</button><button onclick="bank()"><span>✅</span>بنك الأسئلة</button><button onclick="nav('stats')"><span>📈</span>نتائجي</button></div>`}
+function subjRows(list){return list.map(s=>{const d=INLINE[s.id],nl=d.units.reduce((a,u)=>a+u.lessons.length,0),p=prog(s.id),c=SG[s.id]||col(s.id);return `<button class="u" onclick="subj('${s.id}')"><span class="n" style="background:linear-gradient(160deg,${c[0]},${c[1]});color:#fff;font-size:22px">${s.icon}</span><span style="flex:1">${esc(s.name)}<small>${d.units.length} وحدة • ${nl} درس • ${d.questions.length} سؤال</small><div class="bar" style="margin:6px 0 0"><i style="width:${p}%"></i></div></span></button>`}).join('')}
+function others(){head('مواد أخرى');const ids=['tawhid','hadith','fiqh_shafii','quran','tafsir','balagha','nahw'];m.innerHTML=`<button class="btn o" onclick="nav('home')">← رجوع</button>`+subjRows(subsOf().filter(s=>!ids.includes(s.id)))}
+function courses(){if(!track)return pick();head('مقرراتي');m.innerHTML=subjRows(subsOf())}
+function bank(){head('بنك الأسئلة');const l=subsOf(),n=l.reduce((a,s)=>a+INLINE[s.id].questions.length,0);m.innerHTML=`<button class="btn o" onclick="nav('home')">← رجوع</button><button class="btn" onclick="quick()">⚡ تدريب سريع من كل المواد</button><h3>أو اختر مادة (${n} سؤال)</h3>`+l.map(s=>`<button class="u" onclick="practice('${s.id}')"><span class="n" style="font-size:22px">${s.icon}</span><span>${esc(s.name)}<small>${INLINE[s.id].questions.length} سؤال • إتقان ${prog(s.id)}%</small></span></button>`).join('')}
+function acct(){if(!track)return pick();head('حسابي');const h=hist(),tot=h.reduce((s,r)=>s+r.n,0),ok=h.reduce((s,r)=>s+r.sc,0);
+ m.innerHTML=`<div class="prof"><div class="av">🧑‍🎓</div><b>${esc(localStorage.uname||'طالب أزهري')}</b><small style="display:block;color:#6a7a70">${S.tracks[track]} • ثالثة ثانوي</small></div>
+ <h3>الاسم</h3><input class="fld" id="un" placeholder="اكتب اسمك" value="${esc(localStorage.uname||'')}" oninput="localStorage.uname=this.value.trim()">
+ <h3>الشعبة</h3><div class="seg"><button class="${track=='sci'?'on':''}" onclick="setT('sci');nav('acct')">علمي</button><button class="${track=='lit'?'on':''}" onclick="setT('lit');nav('acct')">أدبي</button></div>
+ <div class="st3" style="margin:12px 0"><div><span class="ic">🗓️</span><b>${streak()}</b><small>أيام متتالية</small></div><div><span class="ic">📚</span><b>${tot}</b><small>سؤال محلول</small></div><div><span class="ic">🎯</span><b>${tot?Math.round(ok/tot*100):0}%</b><small>الإنجاز</small></div></div>
+ <button class="btn o" onclick="if(confirm('سيتم مسح كل نتائجك. هل تريد المتابعة؟')){localStorage.removeItem('hist');nav('acct')}">🗑️ مسح التقدم والنتائج</button>`}
+function notifs(){if(!track)return pick();head('الإشعارات');const s0=seen();
+ m.innerHTML=myN().map(n=>`<button class="nt ${s0.includes(n.id)?'':'nw'}" onclick="${n.go}"><span class="ic">${n.ic}</span><span><b>${esc(n.t)}</b><small>${esc(n.d)}</small></span></button>`).join('');
+ localStorage.seen=JSON.stringify([...new Set([...s0,...NOTIFS.map(n=>n.id)])])}
+function more(){if(!track)return pick();head('المزيد');const o=track=='sci'?'lit':'sci';
+ m.innerHTML=`<button class="u" onclick="setT('${o}')"><span class="n">🔁</span><span>التبديل إلى شعبة ${S.tracks[o]}<small>أنت الآن في شعبة ${S.tracks[track]}</small></span></button>
+ <button class="u" onclick="quick()"><span class="n">⚡</span><span>تدريب سريع<small>10 أسئلة عشوائية من موادك</small></span></button>
+ <button class="u" onclick="nav('stats')"><span class="n">📈</span><span>نتائجي<small>سجل كل محاولاتك</small></span></button>
+ <button class="u" onclick="if(navigator.share)navigator.share({title:'أزهري',text:'رفيقك للتفوق في الثانوية الأزهرية',url:location.href.split('#')[0]});else{navigator.clipboard&&navigator.clipboard.writeText(location.href);alert('تم نسخ رابط التطبيق')}"><span class="n">📤</span><span>مشاركة التطبيق<small>أرسل الرابط لزملائك</small></span></button>
+ <div class="note">أزهري — رفيقك للتفوق في الثانوية الأزهرية • العام الدراسي 2026 / 2027</div>`}
 async function quick(){const all=[];for(const s of S.subjects.filter(s=>s.tracks.includes(track))){const d=await data(s.id);d.questions.forEach(q=>all.push({...q,sid:s.id}))}if(!all.length)return alert('لا توجد أسئلة بعد');run(all[0].sid,all.sort(()=>Math.random()-.5).slice(0,10),false)}
 const sub=id=>S.subjects.find(s=>s.id==id);
 async function subj(id){const s=sub(id),d=await data(id),c=col(id);head(s.name);
