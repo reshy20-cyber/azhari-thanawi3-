@@ -187,7 +187,11 @@ async function data(id){if(!D[id]){if(INLINE[id])D[id]=INLINE[id];else{try{D[id]
 /* ===== الخطة المجانية والنسخة الكاملة (الدفع داخل تطبيق Google Play فقط) ===== */
 const FREE_UNITS=2,PLAY_SKU='azhari_thanawi_premium',PLAY_BILLING='https://play.google.com/billing';
 const VERIFY_URL='https://nwlmoecyepsajayyyugd.supabase.co/functions/v1/verify-purchase',VERIFY_KEY='sb_publishable_rgaE-hjmqV37RU57_C8JEA_yn-0AcEO';
-const isPro=()=>localStorage.pro==='1';
+const isPro=()=>localStorage.pro==='1'||localStorage.review==='1';
+/* رمز مراجعة المتجر: يُخزن بصمته فقط */
+const REVIEW_HASH='35da2de39de6877ced71f4a0ff2d1accc2ed7a121fe69424d78cb8e4de3e8e81';
+async function redeem(){const v=($('#rc').value||'').trim().toUpperCase();const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(v));const x=[...new Uint8Array(b)].map(n=>n.toString(16).padStart(2,'0')).join('');
+ if(x===REVIEW_HASH){localStorage.review='1';payMsg=''}else payMsg='الرمز غير صحيح.';paywall()}
 function freeView(d){if(isPro())return d;const ids=d.units.slice(0,FREE_UNITS).map(u=>u.id);return {...d,questions:d.questions.filter(q=>ids.includes(q.unit))}}
 const unitLocked=i=>!isPro()&&i>=FREE_UNITS;
 const setLocked=e=>!isPro()&&(INLINE.examsets||[]).find(x=>x.track==e.track).id!==e.id;
@@ -210,7 +214,7 @@ async function restore(){payMsg='';await syncPurchases();if(!isPro())payMsg='ل�
 async function paywall(){if(QA)return;head('النسخة الكاملة',"nav('home')",{nva:true});const inApp=!!(await playService());
  m.innerHTML=`<div id="paywall"><div class="obj"><b>⭐ ماذا تفتح النسخة الكاملة؟</b>${['كل الوحدات والدروس في جميع المواد','كل أسئلة بنك الأسئلة والاختبارات','كل نماذج الامتحانات في شعبتك','دفعة واحدة بدون اشتراك'].map(x=>`<div class="ob"><span class="ok2">✓</span>${x}</div>`).join('')}</div>`+
  (isPro()?'<div class="note">✅ نسختك كاملة.</div>':inApp?`<button class="btn g" onclick="buy()">شراء النسخة الكاملة${playPrice?' — '+playPrice:''}</button><button class="btn o" onclick="restore()">استعادة الشراء</button>`:'<div class="note">الترقية متاحة من داخل تطبيق «تفوق أزهري ثانوي» على Google Play فقط.</div>')+
- (payMsg?`<div class="note">${payMsg}</div>`:'')+`<div class="note">المجاني: أول وحدتين من كل مادة ونموذج امتحان واحد.</div></div>`}
+ (payMsg?`<div class="note">${payMsg}</div>`:'')+`<div class="note">المجاني: أول وحدتين من كل مادة ونموذج امتحان واحد.</div>`+(isPro()||!inApp?'':`<details style="margin-top:18px"><summary>رمز المراجعة · Review code</summary><input class="fld" id="rc" dir="ltr" autocomplete="off" autocapitalize="characters" placeholder="Review code"><button class="btn o" onclick="redeem()">تفعيل · Apply</button></details>`)+'</div>'}
 let QA=false,LQ=null;
 function leaveQ(go){if(!QA||!Q||Q.i==0&&!Q.timed){QA=false;clearInterval(T);return go()}LQ=go;
  let d=document.getElementById('lq');if(!d){d=document.createElement('div');d.id='lq';document.body.appendChild(d)}
